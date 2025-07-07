@@ -1,1 +1,1 @@
-# CursedCore CMD Loader
+EXE AUTO UPDATE
