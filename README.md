@@ -1,52 +1,84 @@
-=========================================================
-AUTO UPDATE EXE – C# Solution (Visual Studio Project)
-=========================================================
+# AUTO UPDATE EXE – C# Solution
+
 
 📌 Overview:
 ------------
 This is a C# Auto-Updater application built in Microsoft Visual Studio. 
-It checks a remote version file and updates the main application if a newer version is available.
+It checks a remote URL and downloads the latest version of your main application, then automatically launches it.
 
-Built for Windows Desktop apps, this solution is ideal for developers who want seamless, version-controlled updates without user intervention.
+Designed for Windows desktop apps, this updater ensures users always run the latest version — with no manual updates needed.
 
 🔧 Technologies:
 ---------------
 - Language: C#
-- IDE: Visual Studio (2022 recommended)
-- Framework: .NET Framework 4.7.2 (or your version)
-- Architecture: 32-bit / 64-bit supported
-- Format: Windows Forms (WinForms)
+- IDE: Visual Studio (2022 or later)
+- Framework: .NET Framework 4.7.2 (or your target)
+- Type: Console Application
+- Platform: x86 / x64 supported
 
 📁 Project Structure:
 ---------------------
-/AutoUpdateApp/         → Main auto-updater logic (EXE)
-/MainApp/               → Your actual application that will be updated
-/UpdateInfo.json        → Sample version configuration file
+/AutoUpdateApp/         → Main updater code
 /README.txt             → Project documentation
+/bin/Debug or /Release/ → Compiled EXE output
 
 📦 Requirements:
 ----------------
-- Visual Studio installed (.NET desktop development workload)
-- Hosting for `UpdateInfo.json` and latest EXE (GitHub, VPS, Dropbox, etc.)
 - Windows OS
+- Internet access (for downloading EXE)
+- Hosting service (GitHub, VPS, Dropbox, etc.)
 
-🚀 Setup Instructions:
+🚀 How It Works:
+----------------
+1. The app checks for **admin privileges** and restarts itself with elevation if needed.
+2. It shows animated loader-style messages using typewriter effect.
+3. Downloads the latest version of your EXE from your URL:
+4. Saves the downloaded file as:  
+   %TEMP%\[demo].exe
+5. Launches the updated EXE.
+6. Closes itself.
+
+🧠 Example Code Snippet:
+------------------------
+string exeUrl = "https://yourserver.com/yourapp.exe";
+string localPath = Path.Combine(Path.GetTempPath(), "UpdatedApp.exe");
+DownloadFile(exeUrl, localPath);
+Process.Start(localPath);
+
+❗ Warning:
+----------
+- This version ALWAYS downloads the file — no version checking is done.
+- There’s no rollback if update fails.
+- File will be replaced every time it runs.
+
+🛠️ Setup Instructions:
 ----------------------
-1. Clone or download this repository to your system.
-2. Open the solution `.sln` file in Visual Studio.
-3. Modify the `UpdateInfo.json` URL and logic to point to your hosted version info.
-4. Build both projects: Updater and MainApp.
-5. When launching the main app, trigger the updater before or during runtime.
+1. Host the latest version of your main EXE on GitHub or your own server.
+2. Replace the `exeUrl` in the code with your EXE’s direct download link.
+3. Open the solution in Visual Studio.
+4. Build the project (Debug or Release mode).
+5. Distribute `AutoUpdateApp.exe` to your users.
+6. They just run it — it handles the rest!
 
-📝 How Auto Update Works:
---------------------------
-1. `UpdateInfo.json` (hosted online) holds:
-   - Latest version number
-   - URL to the updated EXE
+🎯 Output Location:
+-------------------
+The compiled executable will be located at:
+\AutoUpdateApp\bin\Debug\
+or
+\AutoUpdateApp\bin\Release\
 
-Example `UpdateInfo.json`:
-```json
-{
-  "version": "1.2.0",
-  "url": "https://yourdomain.com/files/MainApp.exe"
-}
+📬 Support / Contact:
+---------------------
+If you need support, suggestions, or want to collaborate:
+
+Telegram: https://t.me/+OglBPVcrngY1OGQ9  
+Discord: https://discord.gg/f7KPc9JyeY  
+Instagram: https://www.instagram.com/mohtasimjitu/
+Founder: Mohtasim Billah Jitu (RED-X CORPORATION)
+
+🔒 License:
+-----------
+This project is open-source under the MIT License.  
+Use freely in commercial or personal projects.
+
+(C) 2025 RED-X CORPORATION. All rights reserved.
