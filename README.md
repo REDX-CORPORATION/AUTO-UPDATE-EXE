@@ -1,57 +1,52 @@
-# AUTO UPDATE EXE (C#)
+=========================================================
+AUTO UPDATE EXE – C# Solution (Visual Studio Project)
+=========================================================
 
-
-📌 Description:
----------------
-This is a C# Auto-Update EXE solution that allows your application to automatically check for updates and download the latest version when available. It removes the hassle of manually updating software for end users.
-
-⚙️ Features:
+📌 Overview:
 ------------
-- Auto version check
-- Remote update URL support
-- Silent or prompt-based updates
-- Lightweight and easy to integrate
+This is a C# Auto-Updater application built in Microsoft Visual Studio. 
+It checks a remote version file and updates the main application if a newer version is available.
+
+Built for Windows Desktop apps, this solution is ideal for developers who want seamless, version-controlled updates without user intervention.
+
+🔧 Technologies:
+---------------
+- Language: C#
+- IDE: Visual Studio (2022 recommended)
+- Framework: .NET Framework 4.7.2 (or your version)
+- Architecture: 32-bit / 64-bit supported
+- Format: Windows Forms (WinForms)
 
 📁 Project Structure:
 ---------------------
-- /Updater             --> The auto-update EXE project
-- /MainApp             --> Your main application project
-- /UpdateInfo.json     --> Sample file for version info
-- /README.txt          --> This file
+/AutoUpdateApp/         → Main auto-updater logic (EXE)
+/MainApp/               → Your actual application that will be updated
+/UpdateInfo.json        → Sample version configuration file
+/README.txt             → Project documentation
 
 📦 Requirements:
 ----------------
-- .NET Framework 4.x (or your target version)
-- Internet access for update checking
-- GitHub or any file hosting service for update binaries
+- Visual Studio installed (.NET desktop development workload)
+- Hosting for `UpdateInfo.json` and latest EXE (GitHub, VPS, Dropbox, etc.)
+- Windows OS
 
-🚀 How to Use:
---------------
-1. Set up a version file (e.g., `UpdateInfo.json`) on your server with version info and download URL.
-2. Integrate the Auto Update EXE into your main project.
-3. On app launch, call the updater and check for a new version.
-4. If available, download and replace the executable.
+🚀 Setup Instructions:
+----------------------
+1. Clone or download this repository to your system.
+2. Open the solution `.sln` file in Visual Studio.
+3. Modify the `UpdateInfo.json` URL and logic to point to your hosted version info.
+4. Build both projects: Updater and MainApp.
+5. When launching the main app, trigger the updater before or during runtime.
 
-🛠️ How to Build:
-------------------
-1. Open the solution in Visual Studio.
-2. Restore NuGet packages (if used).
-3. Build the solution (Build > Build Solution).
-4. Output EXEs will be in `/bin/Debug` or `/bin/Release`.
+📝 How Auto Update Works:
+--------------------------
+1. `UpdateInfo.json` (hosted online) holds:
+   - Latest version number
+   - URL to the updated EXE
 
-📄 Version Format:
-------------------
 Example `UpdateInfo.json`:
+```json
 {
-  "version": "1.1.0",
-  "url": "https://yourdomain.com/files/newversion.exe"
+  "version": "1.2.0",
+  "url": "https://yourdomain.com/files/MainApp.exe"
 }
-
-📬 Contact / Support:
----------------------
-If you need help, feel free to reach out:
-
-Telegram: https://t.me/+OglBPVcrngY1OGQ9  
-Discord: https://discord.gg/f7KPc9JyeY
-
-© 2025 RED-X CORPORATION
